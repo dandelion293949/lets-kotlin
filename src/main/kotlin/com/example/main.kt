@@ -8,6 +8,39 @@ fun main(args: Array<String>) {
   val person = Person(user);
   person.greet();
 
+  scopeFunctions();
+
+  loop();
+}
+
+data class User(val name: String, val age: Int)
+
+class Person(val user: User) {
+  fun greet(): kotlin.Unit {
+    val (name) = user;
+    println("Hello, $name!")
+    println("I'm ${user.age} years old.")
+  }
+}
+
+fun loop() {
+  val items = listOf("apple", "banana", "kiwifruit")
+  for (item in items) {
+    println(item)
+  }
+
+  for (index in items.indices) {
+    println("item at $index is ${items[index]}")
+  }
+
+  var index = 0
+  while (index < items.size) {
+    println("item at $index is ${items[index]}")
+    index++
+  }
+}
+
+fun scopeFunctions() {
 
   println()
   println("\"let\"")
@@ -44,17 +77,6 @@ fun main(args: Array<String>) {
   }
   println(e)
 
-
-}
-
-data class User(val name: String, val age: Int)
-
-class Person(val user: User) {
-  fun greet(): kotlin.Unit {
-    val (name) = user;
-    println("Hello, $name!")
-    println("I'm ${user.age} years old.")
-  }
 }
 
 
